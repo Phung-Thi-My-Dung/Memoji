@@ -1,0 +1,8 @@
+matplotlib  # Vẽ biểu đồ thống kê
+numpy
+seaborn  # Tăng cường trực quan hóa biểu đồ
+pandas  # Xử lý dữ liệu thống kê
+tabulate  # Hiển thị bảng trong giao diện dòng lệnh
+colorama  # Tô màu giao diện dòng lệnh
+python-dateutil  # Xử lý thời gian (lịch sử và log)
+requests  # Gọi API từ điển (tùy chọn mở rộng)
