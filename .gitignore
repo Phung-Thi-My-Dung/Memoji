@@ -1,0 +1,70 @@
+# Tệp và thư mục biên dịch Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.py[cod]
+
+# Tệp tạm thời và nhật ký
+*.log
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# Thư mục dữ liệu cục bộ
+data/
+history/
+logs/
+charts/
+output/
+exports/
+
+# Tệp cấu hình cục bộ và dữ liệu nhạy cảm
+.env
+*.env
+config.json
+secrets.json
+*.key
+*.pem
+*.sqlite
+*.sqlite3
+*.db
+
+# Thư mục môi trường ảo Python
+venv/
+env/
+.virtualenv/
+*.venv/
+
+# Tệp phụ thuộc và khóa phiên bản
+Pipfile.lock
+requirements.txt.bak
+
+# Tệp và thư mục kiểm thử
+.coverage
+coverage/
+*.cover
+htmlcov/
+pytest_cache/
+*.pytest_cache/
+tox/
+*.tox/
+
+# Tệp cấu hình IDE và trình soạn thảo
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+
+# Tệp hệ thống
+.DS_Store
+Thumbs.db
+
+# Thư mục build và phân phối
+build/
+dist/
+*.egg-info/
+*.egg
