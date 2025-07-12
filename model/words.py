@@ -1,5 +1,6 @@
 import numpy as np
 from datetime import datetime
+from ulti.logger import Logger
 
 class Word:
     def __init__(self, word):
