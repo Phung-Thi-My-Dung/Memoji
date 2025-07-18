@@ -1,26 +1,18 @@
 import numpy as np
 from datetime import datetime
-from ulti.logger import Logger
+from base import BaseWord
 
-class Word:
+class Word(BaseWord):
     def __init__(self, word):
         """
-        Initialize a Word object with the required 'word' field.
+        Initialize a Word object, extending BaseWord with additional attributes.
 
-        Attributes:
-            - word (str): the vocabulary word
-            - pos (str): part of speech (e.g., noun, verb, adj)
-            - emoji (str): emoji representing the meaning
+        Additional Attributes:
             - vietnamese_translation (str): meaning in Vietnamese
             - english_meaning (str): explanation in English
             - created_date (str): timestamp of creation
         """
-        if not isinstance(word, str):
-            raise TypeError("Word must be a string.")
-
-        self.word = word.strip()
-        self.pos = None
-        self.emoji = None
+        super().__init__(word)  # Call parent class constructor
         self.vietnamese_translation = None
         self.english_meaning = None
         self.created_date = self._get_datetime()
@@ -28,14 +20,8 @@ class Word:
     def _get_datetime(self):
         """Returns current date and time in format dd/mm/yyyy hh:mm:ss"""
         return datetime.now().strftime("%d/%m/%Y %H:%M:%S")
-
+    
     # ---------- SETTERS ----------
-    def set_pos(self, pos):
-        self.pos = pos.strip() if isinstance(pos, str) else None
-
-    def set_emoji(self, emoji):
-        self.emoji = emoji.strip() if isinstance(emoji, str) else None
-
     def set_vietnamese_translation(self, translation):
         self.vietnamese_translation = translation.strip() if isinstance(translation, str) else None
 
@@ -43,15 +29,6 @@ class Word:
         self.english_meaning = meaning.strip() if isinstance(meaning, str) else None
 
     # ---------- GETTERS ----------
-    def get_word(self):
-        return self.word
-
-    def get_pos(self):
-        return self.pos
-
-    def get_emoji(self):
-        return self.emoji
-
     def get_vietnamese_translation(self):
         return self.vietnamese_translation
 
@@ -73,19 +50,16 @@ class Word:
         required_fields = {
             "word": self.word,
             "pos": self.pos,
-            "emoji": self.emoji,
             "vietnamese_translation": self.vietnamese_translation,
             "english_meaning": self.english_meaning,
-            "created_date": self.get_created_date()
+            "created_date": self.created_date
         }
 
         has_missing = False
         for field_name, value in required_fields.items():
-            if value:
-                print(f"✔ {field_name} is filled.")
-            else:
-                print(f"✘ {field_name} is missing.")
-                has_missing = True
+            status = "✔" if value else "✘"
+            print(f"{status} {field_name} {'is filled' if value else 'is missing'}.")
+            has_missing = has_missing or not value
 
         return not has_missing
 
@@ -99,3 +73,16 @@ class Word:
         return (f"Word('{self.word}', POS={self.pos}, Emoji={self.emoji}, "
                 f"VN={self.vietnamese_translation}, EN={self.english_meaning}, "
                 f"Created={self.created_date})")
+
+
+# if __name__ == "__main__":
+#     # Example usage
+#     word = Word("example")
+#     word.set_pos("noun")
+#     word.set_emoji("📘")
+#     word.set_vietnamese_translation("ví dụ")
+#     word.set_english_meaning("a representative form or pattern")
+
+#     print(word)
+#     print(word.is_valid())
+#     print(word.to_string())

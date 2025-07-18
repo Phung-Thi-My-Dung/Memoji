@@ -3,10 +3,10 @@ from tkinter import messagebox
 from core.word_manager import WordManager
 from core.stats_tracker import StatsTracker
 from core.history_manager import HistoryManager
-from utils.logger import get_logger
-from utils.timer import Timer
-from models.session import Session
-from models.word import Word
+from ulti.logger import get_logger
+from ulti.timer import Timer
+from model.session import Session
+from model.words import Word
 
 class WordGameApp:
     def __init__(self, master):
