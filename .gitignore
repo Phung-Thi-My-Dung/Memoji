@@ -19,7 +19,7 @@ logs/
 charts/
 output/
 exports/
-
+assets/
 # Tệp cấu hình cục bộ và dữ liệu nhạy cảm
 .env
 *.env
