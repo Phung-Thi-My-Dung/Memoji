@@ -20,6 +20,7 @@ charts/
 output/
 exports/
 assets/
+db/
 # Tệp cấu hình cục bộ và dữ liệu nhạy cảm
 .env
 *.env
