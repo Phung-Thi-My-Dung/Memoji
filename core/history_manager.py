@@ -1,23 +1,53 @@
-import json
-from datetime import datetime
+import pandas as pd
+from typing import List
+from model.session import Session
+from ulti.logger import Logger
 
 class HistoryManager:
-    def __init__(self, filepath='data/history.json'):
-        self.filepath = filepath
+    def __init__(self, file_path: str, logger: Logger):
+        self.file_path = file_path
+        self.logger = logger
 
-    def save_session(self, word, correct, time_taken):
+    def save_session(self, session: Session):
         try:
-            with open(self.filepath, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-        except:
-            data = []
+            df = pd.read_excel(self.file_path) if pd.exists(self.file_path) else pd.DataFrame()
+            new_row = {
+                "session_id": session.session_id,
+                "mode": session.mode,
+                "timestamp": session.timestamp,
+                "player_name": session.player_name,
+                "score": session.score,
+                "duration": session.duration,
+                "words_used": ",".join(session.words_used),
+                "correct_count": session.correct_count,
+                "wrong_count": session.wrong_count
+            }
+            df = df.append([new_row], ignore_index=True)
+            df.to_excel(self.file_path, index=False)
+            self.logger.log_info(f"Saved session {session.session_id} to {self.file_path}")
+        except Exception as e:
+            self.logger.log_error(f"Error saving session to {self.file_path}: {str(e)}")
 
-        data.append({
-            "word": word,
-            "correct": correct,
-            "time_taken": time_taken,
-            "timestamp": datetime.now().isoformat()
-        })
-
-        with open(self.filepath, 'w', encoding='utf-8') as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
+    def load_history(self, start_date: str = None, end_date: str = None) -> List[Session]:
+        try:
+            df = pd.read_excel(self.file_path)
+            if start_date and end_date:
+                df = df[(df["timestamp"] >= start_date) & (df["timestamp"] <= end_date)]
+            sessions = []
+            for _, row in df.iterrows():
+                session = Session(
+                    session_id=row["session_id"],
+                    mode=row["mode"],
+                    timestamp=pd.to_datetime(row["timestamp"]),
+                    player_name=row["player_name"],
+                    score=row["score"],
+                    duration=row["duration"],
+                    words_used=row["words_used"].split(",") if pd.notna(row["words_used"]) else [],
+                    correct_count=row["correct_count"],
+                    wrong_count=row["wrong_count"]
+                )
+                sessions.append(session)
+            return sessions
+        except Exception as e:
+            self.logger.log_error(f"Error loading history from {self.file_path}: {str(e)}")
+            return []

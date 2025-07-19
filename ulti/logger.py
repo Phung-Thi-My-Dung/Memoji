@@ -111,17 +111,17 @@ class Logger:
             console_handler.setFormatter(console_formatter)
             self.logger.addHandler(console_handler)
 
-    def info(self, msg):
+    def log_info(self, msg):
         self.logger.info(msg)
 
-    def warning(self, msg):
+    def log_warning(self, msg):
         self.logger.warning(msg)
 
-    def error(self, msg):
+    def log_error(self, msg):
         self.logger.error(msg)
 
-    def debug(self, msg):
+    def log_debug(self, msg):
         self.logger.debug(msg)
 
-    def exception(self, msg):
+    def log_exception(self, msg):
         self.logger.exception(msg)

@@ -20,17 +20,12 @@ class BaseWord:
 
         self.word = word.strip()
         self.pos = None
-        self.emoji = None
+        # self.emoji = None
         self.meaning = None
-        self.emotion = None
-
 
     # ---------- SETTERS ----------
     def set_pos(self, pos):
         self.pos = pos.strip() if isinstance(pos, str) else None
-
-    def set_emoji(self, emoji):
-        self.emoji = emoji.strip() if isinstance(emoji, str) else None
 
     def set_meaning(self, meaning):
         self.meaning = meaning.strip() if isinstance(meaning, str) else None
@@ -41,9 +36,6 @@ class BaseWord:
 
     def get_pos(self):
         return self.pos
-
-    def get_emoji(self):
-        return self.emoji
     
     def get_meaning(self):
         return self.meaning

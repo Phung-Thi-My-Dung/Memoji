@@ -1,25 +1,15 @@
 from datetime import datetime
+from typing import List
 
 class Session:
-    def __init__(self, word: str, correct: bool, time_taken: float, timestamp: str = None):
-        self.word = word
-        self.correct = correct
-        self.time_taken = time_taken
-        self.timestamp = timestamp or datetime.now().isoformat()
-
-    def to_dict(self):
-        return {
-            "word": self.word,
-            "correct": self.correct,
-            "time_taken": self.time_taken,
-            "timestamp": self.timestamp
-        }
-
-    @staticmethod
-    def from_dict(data: dict):
-        return Session(
-            word=data["word"],
-            correct=data["correct"],
-            time_taken=data["time_taken"],
-            timestamp=data.get("timestamp")
-        )
+    def __init__(self, session_id: str, mode: str, timestamp: datetime, player_name: str, 
+                 score: int, duration: float, words_used: List[str], correct_count: int, wrong_count: int):
+        self.session_id = session_id
+        self.mode = mode
+        self.timestamp = timestamp
+        self.player_name = player_name
+        self.score = score
+        self.duration = duration
+        self.words_used = words_used
+        self.correct_count = correct_count
+        self.wrong_count = wrong_count

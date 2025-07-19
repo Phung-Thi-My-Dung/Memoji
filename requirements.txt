@@ -6,3 +6,4 @@ tabulate  # Hiển thị bảng trong giao diện dòng lệnh
 colorama  # Tô màu giao diện dòng lệnh
 python-dateutil  # Xử lý thời gian (lịch sử và log)
 requests  # Gọi API từ điển (tùy chọn mở rộng)
+pygame
