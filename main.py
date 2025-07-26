@@ -1,5 +1,5 @@
 import asyncio
-from core.game_engine import GameEngine
+from game_manager import GameEngine
 from core.word_manager import WordManager
 from core.stats_tracker import StatsTracker
 from core.history_manager import HistoryManager

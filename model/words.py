@@ -5,12 +5,21 @@ from base import BaseWord
 class Word(BaseWord):
     def __init__(self, word):
         """
-        Initialize a Word object, extending BaseWord with additional attributes.
-
-        Additional Attributes:
-            - vietnamese_translation (str): meaning in Vietnamese
-            - english_meaning (str): explanation in English
-            - created_date (str): timestamp of creation
+        Word là định nghĩa mở rộng từ BaseWord,
+        bao gồm các thuộc tính và phương thức cụ thể cho từ trong hệ thống.
+        Nó kế thừa các thuộc tính cơ bản từ BaseWord và thêm các thuộc tính mới
+        như vietnamese_translation, english_meaning và created_date. Phục vụ cho việc định nghĩa
+        word của game 
+        Attributes:
+            - word (str): từ cần định nghĩa
+            - pos (str): từ loại của từ
+            - emoji (str): biểu tượng cảm xúc liên quan đến từ
+            - vietnamese_translation (str): nghĩa của từ bằng tiếng Việt
+            - english_meaning (str): nghĩa của từ bằng tiếng Anh
+            - created_date (str): ngày tạo từ, định dạng dd/mm/yyyy hh:mm:ss
+        
+        Đối với game nó dùng đễ đối tượng dữ liệu từ file và dữ liệu được người dùng nhập trong game
+        sau đó sẽ chuyển các dữ liệu đó thành đối tượng để tương tác với game.
         """
         super().__init__(word)  # Call parent class constructor
         self.vietnamese_translation = None

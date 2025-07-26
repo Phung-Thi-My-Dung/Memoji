@@ -5,19 +5,20 @@ from datetime import datetime
 class BaseWord:
     def __init__(self, word):
         """
-        Initialize a Word object with the required 'word' field.
-
+        Baseword chứa định nghĩa chung cơ bản nhất cho một từ.
+        Nó dùng để định nghĩa các thuộc tính và phương thức cơ bản cho từ,
+        bao gồm các phương thức để lấy và thiết lập các thuộc tính cơ bản.
         Attributes:
-            - word (str): the vocabulary word
-            - pos (str): part of speech (e.g., noun, verb, adj)
-            - emoji (str): emoji representing the meaning
-            - vietnamese_translation (str): meaning in Vietnamese
-            - english_meaning (str): explanation in English
-            - created_date (str): timestamp of creation
+            - word (str): từ cần định nghĩa
+            - pos (str): từ loại của từ
+            - emoji (str): biểu tượng cảm xúc liên quan đến từ
+            - meaning (str): nghĩa của từ
+            - created_date (str): ngày tạo từ, định dạng dd/mm/yyyy hh:mm:ss
+        Những thuộc tính này sẽ được sử dụng trong các lớp con để mở rộng và định nghĩa các thuộc tính khác.
         """
         if not isinstance(word, str):
             raise TypeError("Word must be a string.")
-
+        
         self.word = word.strip()
         self.pos = None
         # self.emoji = None
