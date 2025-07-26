@@ -5,5 +5,6 @@ from words import Word
 from session import Session
 from wrong_words import WrongWord
 from file_handler import FileHandler
+from statistic import Statistic
 __all__ = [
-    "Word", "Session", "WrongWord", "FileHandler"]
+    "Word", "Session", "WrongWord", "FileHandler", "Statistic"]

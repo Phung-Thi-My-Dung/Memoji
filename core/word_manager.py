@@ -2,7 +2,6 @@ import pandas as pd
 from typing import List, Optional
 from model.words import Word
 from datetime import datetime
-from ulti.logger import Logger
 
 class WordManager:
     def __init__(self, file_path: str, logger: Logger):
