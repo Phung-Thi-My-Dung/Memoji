@@ -6,4 +6,4 @@ from history_manager import HistoryManager
 from word_manager import WordManager
 from stats_tracker import StatsTracker  
 
-__all__ = ["GameEngine", "HistoryManager", "WordManager", "StatsTrackers"]
+__all__ = ["GameEngine", "HistoryManager", "WordManager", "StatsTracker"]

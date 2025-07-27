@@ -1,6 +1,6 @@
-from base import Base_setting
+from base import BaseSetting
 
-class Setting(Base_setting):
+class Setting(BaseSetting):
     def __init__(self):
         """
         Initialize a Setting object with the configuration path.
@@ -13,7 +13,7 @@ class Setting(Base_setting):
         self.name_game = "Memoji"
         self.version = "1.0.0"
         self.author = "Mỹ Dung and Anh Nhật"
-        self.db_path = "db/"
+        self.db_path = "db"
         self.max_words = 10
         self.points_per_correct = 10
         self.player_name = "Player"

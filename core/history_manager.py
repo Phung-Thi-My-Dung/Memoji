@@ -1,12 +1,10 @@
 import pandas as pd
 from typing import List
 from model.session import Session
-from ulti.logger import Logger
 
 class HistoryManager:
-    def __init__(self, file_path: str, logger: Logger):
+    def __init__(self, file_path: str):
         self.file_path = file_path
-        self.logger = logger
 
     def save_session(self, session: Session):
         try:
@@ -24,9 +22,9 @@ class HistoryManager:
             }
             df = df.append([new_row], ignore_index=True)
             df.to_excel(self.file_path, index=False)
-            self.logger.log_info(f"Saved session {session.session_id} to {self.file_path}")
+
         except Exception as e:
-            self.logger.log_error(f"Error saving session to {self.file_path}: {str(e)}")
+            print(e)
 
     def load_history(self, start_date: str = None, end_date: str = None) -> List[Session]:
         try:
@@ -49,5 +47,5 @@ class HistoryManager:
                 sessions.append(session)
             return sessions
         except Exception as e:
-            self.logger.log_error(f"Error loading history from {self.file_path}: {str(e)}")
+            print(f"Error loading history from {self.file_path}: {str(e)}")
             return []
