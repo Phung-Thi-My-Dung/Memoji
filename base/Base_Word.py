@@ -13,12 +13,12 @@ class BaseWord:
             - pos (str): từ loại của từ
             - emoji (str): biểu tượng cảm xúc liên quan đến từ
             - meaning (str): nghĩa của từ
-            - created_date (str): ngày tạo từ, định dạng dd/mm/yyyy hh:mm:ss
+            - created_date (strs): ngày tạo từ, định dạng dd/mm/yyyy hh:mm:ss
         Những thuộc tính này sẽ được sử dụng trong các lớp con để mở rộng và định nghĩa các thuộc tính khác.
         """
         if not isinstance(word, str):
             raise TypeError("Word must be a string.")
-        
+        self.id = None
         self.word = word.strip()
         self.pos = None
         # self.emoji = None

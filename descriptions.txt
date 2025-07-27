@@ -1,0 +1,60 @@
+Game Memoji
+
+cấu trúc module , tại sao và nhiệm vụ
+
+1. Modules "Model"
+    Chứa định nghĩa class của lớp dữ liệu của Game
+    Như word có các thứ như word, meanings để định nghĩa cho nó
+    Tương tự với session thì ta sẽ có như là lượt chơi đó như thế nào và bao nhiêu thời gian
+    --> Mục đích để làm các lớp định nghĩa dữ liệu khi được dùng đến sẽ là đối tượng chứa dữ liệu
+        và dễ dàng tương tác gọi các phương thức khi cần.
+
+2. db
+    Lưu lại dữ liệu từng lượt chơi hoặc các hoạt động tạo ra dữ liệu theo mục đích làm Game
+    Thư mục này chứa các dữ liệu như word.xlsx, session,...
+    Ứng với 1 dữ liệu nào đó trong db thì có thể tạo ra 1 hay nhiều lớp dữ liệu định nghĩa 
+    và tương tác với nó
+
+3. Modules "base":
+    Là nơi chứa lớp trừu tượng cho 1 class của module "Model" đây là nơi định nghĩa cơ bản nhất
+    để tạo các lớp mới có thể kế thừa và phát triển mà không cần phải chỉnh sửa lớp Modules
+    --> Mục đích của việc này tạo ra định nghĩa cơ bản cho dữ liệu hoặc một đối tượng nào đó
+    để có thể kế thừa và phát triển mà không cần chỉnh sửa lớp cha 
+
+4. Modules "Services"
+    Bắt nguồn từ việc sử dụng các dịch vụ bên ngoài như API bên ngoài để lấy dữ liệu về sử dụng cho 
+    hệ thống. Nó có các thứ cơ bản nhất là request and response.
+    Nghĩa là gửi yêu cầu sau đó trả về kết quả như các kiến trúc API hay làm điều này có nghĩa là
+    không quan tâm hệ thống bên ngoài xử lý yêu cầu của mính như thế nào chỉ cần quan tâm cách gửi 
+    và kết quả trả về.
+    --> Mục đích là làm cho kết nối với API bên ngoài như gemini hoặc là cambrigde có thể theo chuẩn
+    một hộp đen có yểu cầu gửi tới và có response trả về dữ liệu cần.
+    --- "Lưu ý: Đây là nơi xử lý dữ liệu đầu vào và đầu ra cho API nên không được để câu hình ngay đây"---
+
+5. Config
+    Đơn giản đây là nơi chứa các thông tin cấu hình như env, tên goi hay cấu hình liên quan đến API key
+    Hoặc liên quan đến cấu trúc hạ tầng mạng hoặc là các phương thức kết nối như http, https,...
+    --> Mục đích việc này là vì cần tập trung về một nơi có chứa các thông tin để dễ quản lý thông tin
+    --- Lưu ý: Thư mục này có thể là có class hoặc đơn giản là env không nhất thiết phải là file .py hay file .c"
+
+6. Modules "Core":
+    Sau những thứ ở trên thì ta cần kết nối chúng lại với nhau thông qua Core
+    Theo tên gọi nó chính là lỗi và là cách Logic hoạt động của một bài toán hay một chương trình
+    mọi thứ nằm ở core chính là logic cách game vận hành và hoạt động được biến thành class với các phương thức
+    tuỳ vào bài toán khác nhau core sẽ khác nhau và không có quy chuẩn nào cho một Core
+
+    ---> Core là nơi logic bất kỳ vấn đề hoặc bài toán của chúng ta và cũng là nơi định nghĩa logic
+    cách hoạt động của game cách mà UI có thể tương tác như thế nào.
+
+7. UI
+    Đơn giản là giao diện hết :v cái này thoải mái và chúng ta thiết kế như ra sao cũng được
+    miễn là phù hợp với core và  nó đơn giản đóng vai trò là các nút nhất và hiển thị
+
+    --- Còn việc logic là đã có core lo việc này
+
+cuối cùng làm hàm main gọi UI ra để chơi
+
+
+hãy lấy ví dụ của Memoji như sau để Mỹ Dung dễ hiểu
+
+

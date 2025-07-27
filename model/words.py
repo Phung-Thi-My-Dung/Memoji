@@ -28,7 +28,7 @@ class Word(BaseWord):
 
     def _get_datetime(self):
         """Returns current date and time in format dd/mm/yyyy hh:mm:ss"""
-        return datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+        return datetime.now().strftime("%Y/%m/%d")
     
     # ---------- SETTERS ----------
     def set_vietnamese_translation(self, translation):

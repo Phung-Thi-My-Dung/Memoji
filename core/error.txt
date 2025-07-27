@@ -1,0 +1,30 @@
+code stat history đang lỗi và không thống nhất
+
+
+# các plot cần có
+
+số lượng session 1 ngày trung bình 
+
+số lượng ngày chơi trong 1 tháng hoặc 1 tuần (plot)
+
+Số lượng từ đang sai
+
+Danh sách từ đang sai
+
+Số lương từ đã học
+
+trích danh sách từ học trong tháng hoặc 1 khoảng ngày
+
+.
+game controller: Logic game
+
+.
+Search và chỉnh từ 
+
+.
+word_manager
+    + TÌm kiếm 
+    + Update
+    + đưa file
+    + Nhập từ giao diện
+    + Lấy từ sai
