@@ -4,9 +4,8 @@ from model.words import Word
 from datetime import datetime
 
 class WordManager:
-    def __init__(self, file_path: str, logger: Logger):
+    def __init__(self, file_path: str,):
         self.file_path = file_path
-        self.logger = logger
         self.words = self.load_words()
 
     def load_words(self) -> List[Word]:
@@ -24,10 +23,8 @@ class WordManager:
                 word.created_date = row.get("created_date", datetime.now().strftime("%d/%m/%Y %H:%M:%S"))
 
                 words.append(word)
-            self.logger.log_info(f"Loaded {len(words)} words from {self.file_path}")
             return words
         except Exception as e:
-            self.logger.log_error(f"Error loading words from {self.file_path}: {str(e)}")
             return []
         
     def get_words(self, max_words: int = 10, category: Optional[str] = None) -> List[Word]:

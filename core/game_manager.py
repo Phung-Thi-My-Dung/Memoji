@@ -5,8 +5,6 @@ from model.session import Session
 from word_manager import WordManager
 from stats_tracker import StatsTracker
 from history_manager import HistoryManager
-from ulti.timer import Timer
-from ulti.logger import Logger
 from datetime import datetime
 
 class GameEngine:

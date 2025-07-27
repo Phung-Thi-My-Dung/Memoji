@@ -1,11 +1,11 @@
 from datetime import datetime
 from typing import List
 from base import BaseSession
-
+from datetime import datetime
 
 class Session(BaseSession):
     def __init__(self, session_id: str, mode: str, timestamp: datetime, player_name: str, 
-                 score: int, duration: float, words_used: List[str], correct_count: int, wrong_count: int):
+                 score: int, duration: float, words_used: List[str], wrong_count: int):
         """"
         Session class kế thừa từ BaseSession, định nghĩa các thuộc tính và phương thức
         cụ thể cho một phiên chơi game.
@@ -31,7 +31,15 @@ class Session(BaseSession):
         self.score = score
         self.duration = duration
         self.words_used = words_used
+        self.wrong_count = wrong_count
+        self.datetime = self._get_datetime()
 
+    def _get_datetime(self) -> str:
+        """
+        Trả về chuỗi định dạng ngày giờ hiện tại.
+        """
+        return datetime.now().strftime("%d-%m-%Y %H:%M:%S")
+    
     def set_mode(self, mode: str):
         self.mode = mode.strip() if isinstance(mode, str) else None 
 
